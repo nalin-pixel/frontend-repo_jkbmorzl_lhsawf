@@ -23,17 +23,13 @@ export default function Navbar() {
     }
   }, [highContrast])
 
-  const navLink = (
-    href: string,
-    label: string,
-    onClick?: () => void
-  ) => (
+  const navLink = (href, label, onClick) => (
     <a
       key={href}
       href={href}
       onClick={() => {
         setOpen(false)
-        onClick && onClick()
+        if (onClick) onClick()
       }}
       className="px-3 py-2 text-sm font-medium text-white/90 hover:text-white transition-colors"
     >
@@ -44,7 +40,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-4 rounded-2xl border border-white/15 bg-white/20 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/15 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+        <div className="mt-4 rounded-2xl border border-white/15 bg-white/20 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
           <div className="flex items-center justify-between px-4 py-3">
             <a href="#top" className="flex items-center gap-2">
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-400/80 to-purple-500/80 border border-white/30 shadow" />
